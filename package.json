@@ -1,0 +1,25 @@
+{
+  "name": "see-stats-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "elasticsearch": "^10.1.3",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^2.0.0",
+    "mocha": "^2.4.5",
+    "moment": "^2.11.2",
+    "restify": "^4.0.4",
+    "restify-routes": "^0.1.2"
+  },
+  "devDependencies": {
+    "babel": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "eslint": "1.10.3",
+    "eslint-config-airbnb": "5.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^1.1.1"
+  }
+}
