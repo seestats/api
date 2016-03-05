@@ -9,7 +9,7 @@ const config = require(`${__dirname}/../config/init`);
  * @param string to Date to query results to.
  * @return object Request to be performed body.
  */
-exports.makeAllRowRequest = function make(field, from, to, response) {
+exports.makeAllRowRequest = function make(field, size, from, to, response) {
   config.client.search({
     index: config.index,
     type: config.type,
@@ -29,7 +29,7 @@ exports.makeAllRowRequest = function make(field, from, to, response) {
       aggs: {
         results: {
           terms: {
-            size: 10,
+            size,
             field,
           },
         },
