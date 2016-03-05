@@ -14,7 +14,7 @@ exports.makeAllRowRequest = function make(field, from, to, response) {
     index: config.index,
     type: config.type,
     body: {
-      size: 10,
+      size: 0,
       query: {
         bool: {
           must: [
@@ -27,16 +27,16 @@ exports.makeAllRowRequest = function make(field, from, to, response) {
         },
       },
       aggs: {
-        clients: {
+        results: {
           terms: {
-            size: 0,
+            size: 10,
             field,
           },
         },
       },
     },
   }).then((body) => {
-    response.json({ success: true, hits: body.aggregations.clients.buckets });
+    response.json({ success: true, hits: body.aggregations.results.buckets });
   }, (error) => {
     response.json({ success: false, message: error.message });
   });
