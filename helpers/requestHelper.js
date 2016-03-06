@@ -41,3 +41,22 @@ exports.makeAllRowRequest = function make(field, size, from, to, response) {
     response.json({ success: false, message: error.message });
   });
 };
+
+exports.makeGameRequest = function (type, req, response) {
+    config.client.count({
+      index: config.index,
+      type: config.type,
+      body: {
+          filter: {
+            term: {
+              target: 'https://seestats.org/game/' + type
+            }
+          }
+      }
+    }).then((body) => {
+      console.log(body.count);
+    response.json({ success: true, count: body.count });
+  }, (error) => {
+    response.json({ success: false, message: error.message });
+  });
+};
