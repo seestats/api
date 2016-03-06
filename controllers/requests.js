@@ -18,3 +18,7 @@ exports.getGameRequest = (type, req, res) => {
 exports.getTodaysRequests = (req, res) => {
 	requestHelper.makeTodayCountRequests(req, res);
 };
+
+exports.getTopTargets = (req, res) => {
+	requestHelper.makeTopTargetRequests(req, res);
+};
