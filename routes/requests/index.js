@@ -42,4 +42,11 @@ module.exports = {
         requestsController.getUniqueTargets(req, res);
       }
   },
+  '/currentlyActiveConnection': {
+      get: function get(req, res, cb) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
+        requestsController.getCurrentlyActiveConnections(req, res);
+      }
+  },
 };
