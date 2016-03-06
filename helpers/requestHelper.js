@@ -77,3 +77,39 @@ exports.makeTodayCountRequests = function (req, response) {
     response.json({ success: false, message: error.message });
   });
 };
+
+exports.makeTopTargetRequests = function (req, response) {
+    config.client.search({
+      index: config.index,
+      type: config.type,
+      body: {
+       size: 0,
+      query: {
+        bool: {
+          must: [
+            {
+              range: {
+                '@timestamp': {
+                  from: '2016-03-01',
+                  to: '2016-03-07' },
+              },
+            },
+          ],
+        },
+      },
+      aggs: {
+        results: {
+          terms: {
+            size: 20,
+            field: "target"
+          },
+        },
+      },
+      }
+    }).then((body) => {
+      console.log(body);
+        response.json({ success: true, count: body.aggregations.results.buckets });
+  }, (error) => {
+    response.json({ success: false, message: error.message });
+  });
+};
