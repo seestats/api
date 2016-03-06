@@ -54,8 +54,25 @@ exports.makeGameRequest = function (type, req, response) {
           }
       }
     }).then((body) => {
-      console.log(body.count);
-    response.json({ success: true, count: body.count });
+      response.json({ success: true, count: body.count });
+  }, (error) => {
+      response.json({ success: false, message: error.message });
+  });
+};
+
+exports.makeTodayCountRequests = function (req, response) {
+    config.client.count({
+      index: config.index,
+      type: config.type,
+      body: {
+          filter: {
+            term: {
+              target: 'https://seestats.org/index.html'
+            }
+          }
+      }
+    }).then((body) => {
+        response.json({ success: true, count: body.count });
   }, (error) => {
     response.json({ success: false, message: error.message });
   });
