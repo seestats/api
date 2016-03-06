@@ -35,4 +35,11 @@ module.exports = {
         requestsController.getTopTargets(req, res);
       }
   },
+  '/getUniqueTargets': {
+      get: function get(req, res, cb) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
+        requestsController.getUniqueTargets(req, res);
+      }
+  },
 };
