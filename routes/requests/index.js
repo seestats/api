@@ -49,4 +49,11 @@ module.exports = {
         requestsController.getCurrentlyActiveConnections(req, res);
       }
   },
+  '/statusCodeList': {
+      get: function get(req, res, cb) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
+        requestsController.getStatusCodeList(req, res);
+      }
+  },
 };
