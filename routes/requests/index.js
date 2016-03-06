@@ -14,4 +14,9 @@ module.exports = {
     	}
     },
   },
+  '/game/:type': {
+    get: function get (req, res, cb) {
+        requestsController.getGameRequest(req.params.type, req, res);
+    },
+  },
 };
