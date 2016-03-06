@@ -16,6 +16,8 @@ module.exports = {
   },
   '/game/:type': {
     get: function get (req, res, cb) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
         requestsController.getGameRequest(req.params.type, req, res);
     },
   },
