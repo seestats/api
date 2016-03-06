@@ -30,3 +30,7 @@ exports.getUniqueTargets = (req, res) => {
 exports.getCurrentlyActiveConnections = (req, res) => {
 	requestHelper.makeCurrentlyActiveConnectionRequests(req, res);
 };
+
+exports.getStatusCodeList = (req, res) => {
+	requestHelper.makeStatusCodeList(req, res);
+};
