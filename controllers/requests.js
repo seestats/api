@@ -14,3 +14,7 @@ exports.getRowRequest = (field, size, req, res) => {
 exports.getGameRequest = (type, req, res) => {
 	requestHelper.makeGameRequest(type, req, res);
 };
+
+exports.getTodaysRequests = (req, res) => {
+	requestHelper.makeTodayCountRequests(req, res);
+};
