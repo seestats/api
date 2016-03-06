@@ -22,3 +22,7 @@ exports.getTodaysRequests = (req, res) => {
 exports.getTopTargets = (req, res) => {
 	requestHelper.makeTopTargetRequests(req, res);
 };
+
+exports.getUniqueTargets = (req, res) => {
+	requestHelper.makeUniqueTargetsRequests(req, res);
+};
