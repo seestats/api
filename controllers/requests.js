@@ -10,3 +10,7 @@ exports.getRowRequest = (field, size, req, res) => {
     res.json({ success: false, message: 'Bad date formatting' });
   }
 };
+
+exports.getGameRequest = (type, req, res) => {
+	requestHelper.makeGameRequest(type, req, res);
+};
