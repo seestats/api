@@ -183,3 +183,40 @@ exports.makeCurrentlyActiveConnectionRequests = function (req, res) {
     res.json({ success: false, message: error.message });
   });
 };
+
+exports.makeStatusCodeList = function (req, res) {
+    const from = Date.now() - (60*60*1000);
+    const to = Date.now();
+
+    config.client.search({
+      index: config.index,
+      type: config.type,
+      body: {
+       size: 0,
+      query: {
+        bool: {
+          must: [
+            {
+              range: {
+                '@timestamp': {
+                  from,
+                  to },
+              },
+            },
+          ],
+        },
+      },
+      aggs: {
+        results: {
+          terms: {
+            field: "status_code"
+          },
+        },
+      },
+      }
+    }).then((body) => {
+        res.json({ success: true, count: body.aggregations.results.buckets });
+  }, (error) => {
+    res.json({ success: false, message: error.message });
+  });
+};
