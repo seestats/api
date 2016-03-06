@@ -26,3 +26,7 @@ exports.getTopTargets = (req, res) => {
 exports.getUniqueTargets = (req, res) => {
 	requestHelper.makeUniqueTargetsRequests(req, res);
 };
+
+exports.getCurrentlyActiveConnections = (req, res) => {
+	requestHelper.makeCurrentlyActiveConnectionRequests(req, res);
+};
