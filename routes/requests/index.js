@@ -27,5 +27,12 @@ module.exports = {
 
         requestsController.getTodaysRequests(req, res);
       },
-  }
+  },
+  '/getTopTargets': {
+      get: function get(req, res, cb) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
+        requestsController.getTopTargets(req, res);
+      }
+  },
 };
