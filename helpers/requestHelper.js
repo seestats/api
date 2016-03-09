@@ -91,7 +91,7 @@ exports.makeTopTargetRequests = function (req, response) {
               range: {
                 '@timestamp': {
                   from: '2016-03-01',
-                  to: '2016-03-07' },
+                  to: '2016-03-30' },
               },
             },
           ],
@@ -126,7 +126,7 @@ exports.makeUniqueTargetsRequests = function (req, res) {
               range: {
                 '@timestamp': {
                   from: '2016-03-01',
-                  to: '2016-03-07' },
+                  to: '2016-03-30' },
               },
             },
           ],
